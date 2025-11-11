@@ -87,7 +87,8 @@ A hardware device based on ESP-32C mini for voice text input. The device allows 
 ## Development Phases
 
 ### Phase 1: Prototype (2-3 weeks)
-- Microphone and button connection to ESP-32
+- Preparation of necessary electronic components list
+- Microphone and button connection to ESP32
 - Basic audio recording to memory
 - Simple USB transmission
 

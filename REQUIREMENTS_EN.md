@@ -6,7 +6,7 @@ A hardware device based on ESP-32C mini for voice text input. The device allows 
 ## Hardware Requirements
 
 ### Main Components
-- **Board**: ESP-32C mini
+- **Board**: ESP32 C3 SuperMini
 - **Microphone**: Built-in or external microphone for voice recording
 - **Button**: Single button for recording control
 - **Connectivity**: USB and Bluetooth for PC communication
@@ -41,7 +41,7 @@ A hardware device based on ESP-32C mini for voice text input. The device allows 
 ## Technical Requirements
 
 ### Device Software
-- **ESP-32 Firmware**: Recording control, Wi-Fi, Bluetooth management
+- **ESP32 Firmware**: Recording control, Wi-Fi, Bluetooth management
 - **Audio Processing**: Audio formatting and compression before sending
 - **Network Communication**: HTTP/HTTPS requests to AI service
 - **HID Emulation**: Text transmission as key presses

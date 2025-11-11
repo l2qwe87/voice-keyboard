@@ -28,46 +28,50 @@
 
 ## Статус разработки
 
-### Этап 1: Прототип ✅ ЗАВЕРШЁН
-- [x] Базовая настройка ESP32
-- [x] Конфигурация I2S микрофона
-- [x] Реализация BLE HID клавиатуры
-- [x] Управление записью через кнопку
-- [x] LED индикация состояния
+### Этап 1: Планирование и документация ✅ ЗАВЕРШЁН
+- [x] Технические требования и спецификации
+- [x] Схема подключений и выбор компонентов
+- [x] Документация проекта (README, BOM, CIRCUIT)
+- [x] Настройка ESP-IDF среды разработки
+- [x] Создание базовой структуры проекта
 
-### Этап 2: Сетевое распознавание (СЛЕДУЮЩИЙ)
-- [ ] Настройка Wi-Fi подключения
-- [ ] Интеграция с API распознавания речи
-- [ ] Сжатие и передача аудио
-- [ ] Обработка ошибок
+### Этап 2: Прототипирование (В ПРОЦЕССЕ)
+- [x] Базовая структура ESP-IDF проекта
+- [ ] Реализация I2S захвата аудио с микрофона INMP441
+- [ ] Управление внешней тактильной кнопкой (GPIO 0)
+- [ ] LED индикация состояния записи (GPIO 1)
+- [ ] Базовая BLE HID клавиатура
 
-### Этап 3: HID оптимизация
-- [ ] Улучшенное отображение клавиатуры
-- [ ] Поддержка нескольких языков
-- [ ] Обработка специальных символов
+### Этап 3: Распознавание речи (СЛЕДУЮЩИЙ)
+- [ ] Интеграция Vosk API для офлайн распознавания
+- [ ] Потоковая обработка аудио данных
+- [ ] Обработка голосовых команд
+- [ ] Преобразование текста в HID ввод
 
-### Этап 4: Производство
+### Этап 4: Оптимизация и тестирование
 - [ ] Оптимизация энергопотребления
-- [ ] Дизайн корпуса
-- [ ] Тестирование и валидация
+- [ ] Тестирование качества распознавания
+- [ ] Совместимость с различными ОС
+- [ ] Дизайн корпуса и механическая сборка
 
 ## Сборка и прошивка
 
 ### Для ESP-IDF (рекомендуется)
 ```bash
-# Настройка окружения ESP-IDF
-git clone --recursive https://github.com/espressif/esp-idf.git
-cd esp-idf
-./install.sh esp32c3
-./export.sh
+# Настройка окружения ESP-IDF (v5.5.1)
+# ESP-IDF путь: Z:\Apps\esp-idf\v5.5.1\esp-idf
+# Python путь: C:\Python312\python.exe
+
+# Активация ESP-IDF окружения
+cd Z:\Apps\esp-idf\v5.5.1\esp-idf
+export.bat
 
 # Клонирование проекта
-git clone https://github.com/your-repo/voice-keyboard.git
-cd voice-keyboard
+git clone https://github.com/l2qwe87/voice-keyboard.git
+cd voice-keyboard/voice-keyboard-firmware
 
-# Конфигурация проекта
-idf.py menuconfig
-# Выбрать: ESP32-C3 -> ESP32C3 SuperMini
+# Установка target (ESP32-C3)
+idf.py set-target esp32c3
 
 # Сборка проекта
 idf.py build
@@ -128,10 +132,11 @@ pio device monitor
 - **Массовое производство** и дистрибуция
 
 ## Требования к окружению разработки
-- **ESP-IDF v5.0+** для компиляции под ESP32-C3
-- **Python 3.8+** для инструментов ESP-IDF
+- **ESP-IDF v5.5.1** для компиляции под ESP32-C3
+- **Python 3.12** для инструментов ESP-IDF
 - **Git** для управления версиями
 - **VSCode с расширением ESP-IDF** (рекомендуется)
+- **Windows 10/11** (текущая конфигурация)
 
 ## Устранение неисправностей
 
@@ -178,46 +183,50 @@ ESP32 C3 SuperMini based voice keyboard that converts speech to text and inputs 
 
 ## Development Status
 
-### Phase 1: Prototype ✅ COMPLETED
-- [x] Basic ESP32 setup
-- [x] I2S microphone configuration
-- [x] BLE HID keyboard implementation
-- [x] Button-controlled recording
-- [x] LED status indication
+### Phase 1: Planning & Documentation ✅ COMPLETED
+- [x] Technical requirements and specifications
+- [x] Circuit design and component selection
+- [x] Project documentation (README, BOM, CIRCUIT)
+- [x] ESP-IDF development environment setup
+- [x] Basic ESP-IDF project structure
 
-### Phase 2: Network Recognition (NEXT)
-- [ ] Wi-Fi connection setup
-- [ ] Speech recognition API integration
-- [ ] Audio compression and transmission
-- [ ] Error handling
+### Phase 2: Prototyping (IN PROGRESS)
+- [x] Basic ESP-IDF project structure
+- [ ] I2S audio capture with INMP441 microphone
+- [ ] External tactile button control (GPIO 0)
+- [ ] LED status indication (GPIO 1)
+- [ ] Basic BLE HID keyboard implementation
 
-### Phase 3: HID Optimization
-- [ ] Improved keyboard mapping
-- [ ] Multi-language support
-- [ ] Special character handling
+### Phase 3: Speech Recognition (NEXT)
+- [ ] Vosk API integration for offline recognition
+- [ ] Audio data stream processing
+- [ ] Voice command processing
+- [ ] Text to HID input conversion
 
-### Phase 4: Production
-- [ ] Power optimization
-- [ ] Enclosure design
-- [ ] Testing and validation
+### Phase 4: Optimization & Testing
+- [ ] Power consumption optimization
+- [ ] Recognition quality testing
+- [ ] Cross-platform compatibility
+- [ ] Enclosure design and mechanical assembly
 
 ## Building and Flashing
 
 ### For ESP-IDF (Recommended)
 ```bash
-# Setup ESP-IDF environment
-git clone --recursive https://github.com/espressif/esp-idf.git
-cd esp-idf
-./install.sh esp32c3
-./export.sh
+# Setup ESP-IDF environment (v5.5.1)
+# ESP-IDF path: Z:\Apps\esp-idf\v5.5.1\esp-idf
+# Python path: C:\Python312\python.exe
+
+# Activate ESP-IDF environment
+cd Z:\Apps\esp-idf\v5.5.1\esp-idf
+export.bat
 
 # Clone project
-git clone https://github.com/your-repo/voice-keyboard.git
-cd voice-keyboard
+git clone https://github.com/l2qwe87/voice-keyboard.git
+cd voice-keyboard/voice-keyboard-firmware
 
-# Configure project
-idf.py menuconfig
-# Select: ESP32-C3 -> ESP32C3 SuperMini
+# Set target (ESP32-C3)
+idf.py set-target esp32c3
 
 # Build project
 idf.py build
@@ -278,10 +287,11 @@ pio device monitor
 - **Mass production** and distribution
 
 ## Development Environment Requirements
-- **ESP-IDF v5.0+** for ESP32-C3 compilation
-- **Python 3.8+** for ESP-IDF tools
+- **ESP-IDF v5.5.1** for ESP32-C3 compilation
+- **Python 3.12** for ESP-IDF tools
 - **Git** for version control
 - **VSCode with ESP-IDF extension** (recommended)
+- **Windows 10/11** (current configuration)
 
 ## Troubleshooting
 

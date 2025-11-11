@@ -28,6 +28,19 @@
   - Примечание: Внешнее размещение для удобного доступа
   - Подключение: Через разъём или провода к ESP32
 
+- **Соединительные провода** - Подключение внешней кнопки
+  - Тип: Dupont провода (мама-папа)
+  - Длина: 10-20см
+  - Количество: 2-3 шт.
+  - Приблизительная стоимость: $1-2
+  - Примечание: Для подключения кнопки к GPIO ESP32
+
+- **Разъём для кнопки** (опционально) - Съёмное подключение
+  - Тип: 2-контактный разъём JST-XH или PH2.0
+  - Количество: 1 пара (мама+папа)
+  - Приблизительная стоимость: $0.50-1.00
+  - Примечание: Для удобства монтажа/демонтажа
+
 - **Светодиодный индикатор** - Индикация состояния записи
   - Размер: 3мм или 5мм (любой цвет)
   - Количество: 1
@@ -65,8 +78,8 @@
   - Примечание: Профессиональный вид монтажа
 
 ## Общая оценочная стоимость
-- **Базовая версия**: $6-10
-- **Портативная версия**: $10-15
+- **Базовая версия**: $7-12
+- **Портативная версия**: $11-17
 
 ## Рекомендуемые поставщики
 - **AliExpress** - Низкие цены, долгая доставка
@@ -101,11 +114,25 @@
   - Note: Digital interface simplifies connection
 
 ### User Interface
-- **Tactile Push Button** - Recording control
+- **External Tactile Push Button** - Recording control
   - Size: 6mm or 12mm
   - Quantity: 1
   - Approx. Cost: $0.10-0.50
-  - Note: For reliable actuation
+  - Note: External mounting for easy access
+  - Connection: Via connector or wires to ESP32
+
+- **Connection Wires** - External button connection
+  - Type: Dupont wires (male-female)
+  - Length: 10-20cm
+  - Quantity: 2-3 pcs
+  - Approx. Cost: $1-2
+  - Note: For connecting button to ESP32 GPIO
+
+- **Button Connector** (optional) - Removable connection
+  - Type: 2-pin JST-XH or PH2.0 connector
+  - Quantity: 1 pair (male+female)
+  - Approx. Cost: $0.50-1.00
+  - Note: For easy mounting/dismounting
 
 - **LED Indicator** - Recording status
   - Size: 3mm or 5mm (any color)
@@ -144,8 +171,8 @@
   - Note: Professional mounting appearance
 
 ## Total Estimated Cost
-- **Basic Version**: $6-10
-- **Portable Version**: $10-15
+- **Basic Version**: $7-12
+- **Portable Version**: $11-17
 
 ## Recommended Suppliers
 - **AliExpress** - Low prices, long shipping

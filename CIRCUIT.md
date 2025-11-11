@@ -11,8 +11,8 @@
 ESP32 C3 SuperMini
 ┌─────────────────┐
 │                 │
-│ GPIO 0 ────────┼───┬─── [BUTTON] ──── GND
-│                 │   │
+│ GPIO 0 ────────┼───┬─── [ВНЕШНЯЯ КНОПКА] ──── GND
+│                 │   │   (через разъём/провода)
 │ GPIO 1 ────────┼───┴─── [220Ω] ──── [LED] ──── GND
 │                 │
 │ GPIO 2 ────────┼─── WS (Word Select)
@@ -28,6 +28,16 @@ ESP32 C3 SuperMini
 │ USB-C ─────────┼─── Programming & Power
 │                 │
 └─────────────────┘
+
+ВНЕШНЯЯ КНОПКА (6мм/12мм)
+┌─────────────────┐
+│                 │
+│ Контакт 1 ──────┼─── К GPIO 0 ESP32
+│                 │
+│ Контакт 2 ──────┼─── К GND ESP32
+│                 │
+└─────────────────┘
+(Подключается через Dupont провода или разъём JST)
 
 I2S Микрофон (INMP441)
 ┌─────────────────┐
@@ -78,11 +88,13 @@ LiPo Аккумулятор ────┐
 - Чувствительность: -26дБFS
 - Примечание: Цифровой интерфейс упрощает подключение
 
-### Кнопка
-- Тип: Тактильная кнопка
+### Внешняя кнопка
+- Тип: Внешняя тактильная кнопка (6мм/12мм)
 - Конфигурация: Pull-up (внутренний ESP32)
 - Срабатывание: Active LOW
-- Примечание: Надёжное механическое срабатывание
+- Подключение: Через Dupont провода или разъём JST-XH/PH2.0
+- Примечание: Внешнее размещение для удобного доступа
+- Длина проводов: 10-20см для гибкого монтажа
 
 ### Светодиодный индикатор
 - Тип: Стандартный LED
@@ -120,9 +132,11 @@ LiPo Аккумулятор ────┐
 - Рассмотреть управление питанием микрофона
 
 ### Механические аспекты
-- Разместить кнопку в удобном для доступа месте
+- Внешняя кнопка размещается отдельно от основной платы
+- Длина проводов 10-20см для удобного размещения
 - Позиционировать LED для хорошей видимости
 - Учитывать размещение разъёма USB-C
+- Рассмотреть возможность крепления кнопки на корпусе или кабеле
 
 ---
 
@@ -134,8 +148,8 @@ LiPo Аккумулятор ────┐
 ESP32 C3 SuperMini
 ┌─────────────────┐
 │                 │
-│ GPIO 0 ────────┼───┬─── [BUTTON] ──── GND
-│                 │   │
+│ GPIO 0 ────────┼───┬─── [EXTERNAL BUTTON] ──── GND
+│                 │   │   (via connector/wires)
 │ GPIO 1 ────────┼───┴─── [220Ω] ──── [LED] ──── GND
 │                 │
 │ GPIO 2 ────────┼─── WS (Word Select)
@@ -151,6 +165,16 @@ ESP32 C3 SuperMini
 │ USB-C ─────────┼─── Programming & Power
 │                 │
 └─────────────────┘
+
+EXTERNAL BUTTON (6mm/12mm)
+┌─────────────────┐
+│                 │
+│ Contact 1 ──────┼─── To ESP32 GPIO 0
+│                 │
+│ Contact 2 ──────┼─── To ESP32 GND
+│                 │
+└─────────────────┘
+(Connected via Dupont wires or JST connector)
 
 I2S Microphone (INMP441)
 ┌─────────────────┐
@@ -201,11 +225,13 @@ LiPo Battery ────┐
 - Sensitivity: -26dBFS
 - Note: Digital interface simplifies connection
 
-### Button
-- Type: Tactile push button
+### External Button
+- Type: External tactile push button (6mm/12mm)
 - Configuration: Pull-up (internal ESP32)
 - Action: Active LOW
-- Note: Reliable mechanical actuation
+- Connection: Via Dupont wires or JST-XH/PH2.0 connector
+- Note: External mounting for easy access
+- Wire length: 10-20cm for flexible mounting
 
 ### LED Indicator
 - Type: Standard LED
@@ -243,6 +269,8 @@ LiPo Battery ────┐
 - Consider power switching for microphone
 
 ### Mechanical
-- Place button for easy access
+- External button mounted separately from main board
+- Wire length 10-20cm for flexible placement
 - Position LED for visibility
 - Consider USB-C connector placement
+- Consider button mounting on enclosure or cable

@@ -404,8 +404,71 @@ FodyWeavers.xsd
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+# ESP-IDF VS Code extension files
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/tasks.json
+
 # Local History for Visual Studio Code
 .history/
+
+# ESP-IDF specific ignores
+# Build directories
+build/
+managed_components/
+dependencies/
+
+# ESP-IDF configuration and temporary files
+sdkconfig
+sdkconfig.old
+*.bin
+*.elf
+*.map
+*.hex
+
+# Flash and monitor temporary files
+flash_project_args
+flasher_args.json
+
+# Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ESP-IDF tools and logs
+*.log
+*.out
+*.dSYM/
+
+# Component manager
+idf_component_manager.lock
+component_manager.lock
+
+# Partition table and bootloader files
+partition-table*.bin
+bootloader*.bin
+
+# Audio files (temporary recordings)
+*.wav
+*.mp3
+*.raw
+*.pcm
+
+# Model files for speech recognition
+*.model
+*.tflite
+*.onnx
+
+# Temporary files for speech processing
+*.tmp
+*.temp
 
 # Built Visual Studio Code Extensions
 *.vsix
@@ -416,3 +479,61 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# ESP-IDF specific ignores
+# Build directories
+build/
+managed_components/
+dependencies/
+
+# ESP-IDF configuration and temporary files
+sdkconfig
+sdkconfig.old
+*.bin
+*.elf
+*.map
+*.hex
+
+# Flash and monitor temporary files
+flash_project_args
+flasher_args.json
+
+# Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ESP-IDF tools and logs
+*.log
+*.out
+*.dSYM/
+
+# Component manager
+idf_component_manager.lock
+component_manager.lock
+
+# Partition table and bootloader files
+partition-table*.bin
+bootloader*.bin
+
+# Audio files (temporary recordings)
+*.wav
+*.mp3
+*.raw
+*.pcm
+
+# Model files for speech recognition
+*.model
+*.tflite
+*.onnx
+
+# Temporary files for speech processing
+*.tmp
+*.temp

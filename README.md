@@ -21,9 +21,11 @@
 
 ## Функциональные возможности
 - **BLE HID эмуляция клавиатуры** - Беспроводное подключение к устройствам
-- **I2S запись аудио** - 16кГц, 16-бит качество записи
-- **Управление записью через кнопку** - Простое управление записью
-- **LED индикация состояния** - Визуальная обратная связь
+- **I2S запись аудио** - 16кГц, 16-бит качество записи с INMP441
+- **Управление записью через кнопку** - Простое управление записью (GPIO 0)
+- **LED индикация состояния** - Визуальная обратная связь (GPIO 1)
+- **Модульная архитектура** - Четкое разделение кода по функциональности
+- **Двуязычная документация** - Комментарии на русском и английском
 - **Базовый вывод текста как клавиатурный ввод** - Преобразование речи в текст
 
 ## Статус разработки
@@ -35,11 +37,13 @@
 - [x] Настройка ESP-IDF среды разработки
 - [x] Создание базовой структуры проекта
 
-### Этап 2: Прототипирование (В ПРОЦЕССЕ)
+### Этап 2: Прототипирование ✅ ЗАВЕРШЁН
 - [x] Базовая структура ESP-IDF проекта
-- [ ] Реализация I2S захвата аудио с микрофона INMP441
-- [ ] Управление внешней тактильной кнопкой (GPIO 0)
-- [ ] LED индикация состояния записи (GPIO 1)
+- [x] Реализация I2S захвата аудио с микрофона INMP441
+- [x] Управление внешней тактильной кнопкой (GPIO 0)
+- [x] LED индикация состояния записи (GPIO 1)
+- [x] Модульная структура кода
+- [x] Двуязычные комментарии (русский/английский)
 - [ ] Базовая BLE HID клавиатура
 
 ### Этап 3: Распознавание речи (СЛЕДУЮЩИЙ)
@@ -53,6 +57,29 @@
 - [ ] Тестирование качества распознавания
 - [ ] Совместимость с различными ОС
 - [ ] Дизайн корпуса и механическая сборка
+
+## Структура проекта
+
+### Организация кода
+```
+voice-keyboard-firmware/
+└── main/
+    ├── config/              # Конфигурация системы
+    │   ├── config.h         # Основные константы и определения
+    │   ├── i2s_config.h/.c # I2S конфигурация и функции
+    │   └── gpio_config.h/.c # GPIO конфигурация и функции
+    ├── tasks/               # FreeRTOS задачи
+    │   ├── gpio_task.h/.c   # Задача обработки GPIO событий
+    │   └── audio_task.h/.c  # Задача обработки аудио
+    ├── main.c              # Основная логика инициализации
+    └── CMakeLists.txt       # Конфигурация сборки
+```
+
+### Особенности архитектуры
+- **Модульность** - Четкое разделение по функциональности
+- **Масштабируемость** - Легко добавлять новые модули
+- **Двуязычие** - Комментарии на русском и английском
+- **Инкапсуляция** - Каждый модуль имеет свою зону ответственности
 
 ## Сборка и прошивка
 
@@ -176,9 +203,11 @@ ESP32 C3 SuperMini based voice keyboard that converts speech to text and inputs 
 
 ## Features
 - **BLE HID Keyboard Emulation** - Wireless device connection
-- **I2S Audio Recording** - 16kHz, 16-bit recording quality
-- **Button-Controlled Recording** - Simple recording control
-- **LED Status Indication** - Visual feedback
+- **I2S Audio Recording** - 16kHz, 16-bit recording with INMP441
+- **Button-Controlled Recording** - Simple recording control (GPIO 0)
+- **LED Status Indication** - Visual feedback (GPIO 1)
+- **Modular Architecture** - Clear code separation by functionality
+- **Bilingual Documentation** - Russian and English comments
 - **Basic Text-to-Keyboard Output** - Speech to text conversion
 
 ## Development Status
@@ -190,11 +219,13 @@ ESP32 C3 SuperMini based voice keyboard that converts speech to text and inputs 
 - [x] ESP-IDF development environment setup
 - [x] Basic ESP-IDF project structure
 
-### Phase 2: Prototyping (IN PROGRESS)
+### Phase 2: Prototyping ✅ COMPLETED
 - [x] Basic ESP-IDF project structure
-- [ ] I2S audio capture with INMP441 microphone
-- [ ] External tactile button control (GPIO 0)
-- [ ] LED status indication (GPIO 1)
+- [x] I2S audio capture with INMP441 microphone
+- [x] External tactile button control (GPIO 0)
+- [x] LED status indication (GPIO 1)
+- [x] Modular code architecture
+- [x] Bilingual comments (Russian/English)
 - [ ] Basic BLE HID keyboard implementation
 
 ### Phase 3: Speech Recognition (NEXT)
@@ -208,6 +239,29 @@ ESP32 C3 SuperMini based voice keyboard that converts speech to text and inputs 
 - [ ] Recognition quality testing
 - [ ] Cross-platform compatibility
 - [ ] Enclosure design and mechanical assembly
+
+## Project Structure
+
+### Code Organization
+```
+voice-keyboard-firmware/
+└── main/
+    ├── config/              # System configuration
+    │   ├── config.h         # Main constants and definitions
+    │   ├── i2s_config.h/.c # I2S configuration and functions
+    │   └── gpio_config.h/.c # GPIO configuration and functions
+    ├── tasks/               # FreeRTOS tasks
+    │   ├── gpio_task.h/.c   # GPIO event handling task
+    │   └── audio_task.h/.c  # Audio processing task
+    ├── main.c              # Main initialization logic
+    └── CMakeLists.txt       # Build configuration
+```
+
+### Architecture Features
+- **Modularity** - Clear separation by functionality
+- **Scalability** - Easy to add new modules
+- **Bilingual** - Russian and English comments
+- **Encapsulation** - Each module has its own responsibility
 
 ## Building and Flashing
 

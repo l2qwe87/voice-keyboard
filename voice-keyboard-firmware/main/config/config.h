@@ -24,6 +24,8 @@
 #define GPIO_TASK_PRIORITY      10
 #define AUDIO_TASK_STACK_SIZE   4096
 #define AUDIO_TASK_PRIORITY     5
+#define SPEECH_TASK_STACK_SIZE  4096
+#define SPEECH_TASK_PRIORITY    5
 
 // Audio Processing
 #define AUDIO_LEVEL_LOG_INTERVAL 100  // Log every N buffers

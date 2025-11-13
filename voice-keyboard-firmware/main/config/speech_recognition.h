@@ -1,11 +1,11 @@
 /**
  * @file speech_recognition.h
- * @brief Speech recognition framework header (stub)
+ * @brief Speech recognition framework header
  * @author Voice Keyboard Team
  * @date 2025
  * 
- * Заголовочный файл фреймворка распознавания речи (заглушка)
- * Header file for speech recognition framework (stub)
+ * Заголовочный файл фреймворка распознавания речи
+ * Header file for speech recognition framework
  */
 
 #ifndef SPEECH_RECOGNITION_H

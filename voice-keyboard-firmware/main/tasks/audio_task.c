@@ -44,7 +44,7 @@ static void audio_task_impl(void* arg)
                     buffer_count = 0;
                 }
                 
-                // TODO: Сохранить аудиоданные для распознавания речи / TODO: Store audio data for speech recognition
+                // TODO: Отправить аудиоданные в задачу распознавания речи / TODO: Send audio data to speech recognition task
                 // Сейчас просто обрабатываем и отбрасываем / For now, we just process and discard
             }
         } else {

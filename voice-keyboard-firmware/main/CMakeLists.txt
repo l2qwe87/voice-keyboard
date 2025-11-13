@@ -1,7 +1,10 @@
 idf_component_register(SRCS "main.c"
                             "config/i2s_config.c"
                             "config/gpio_config.c"
+                            "config/hid_config.c"
+                            "config/voice_commands.c"
                             "tasks/gpio_task.c"
                             "tasks/audio_task.c"
+                            "tasks/hid_task.c"
                     INCLUDE_DIRS "."
                     REQUIRES driver esp_common)

@@ -1,4 +1,5 @@
 #include "audio_task.h"
+#include "speech_task.h"
 #include "config/config.h"
 #include "config/i2s_config.h"
 #include "esp_log.h"
@@ -44,8 +45,8 @@ static void audio_task_impl(void* arg)
                     buffer_count = 0;
                 }
                 
-                // TODO: Сохранить аудиоданные для распознавания речи / TODO: Store audio data for speech recognition
-                // Сейчас просто обрабатываем и отбрасываем / For now, we just process and discard
+                // Отправить аудиоданные в задачу распознавания речи / Send audio data to speech recognition task
+                speech_send_audio_frame(audio_buffer, samples_read);
             }
         } else {
             // Не записываем, немного ждем / Not recording, wait a bit

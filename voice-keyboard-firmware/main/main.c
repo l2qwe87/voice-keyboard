@@ -9,6 +9,7 @@
 #include "config/gpio_config.h"
 #include "tasks/gpio_task.h"
 #include "tasks/audio_task.h"
+#include "tasks/speech_task.h"
 
 static const char *TAG = "VOICE_KEYBOARD";
 
@@ -30,6 +31,9 @@ void app_main(void)
     
     // Создаем задачу обработки аудио / Create audio processing task
     create_audio_task();
+    
+    // Создаем задачу распознавания речи / Create speech recognition task
+    create_speech_task();
     
     ESP_LOGI(TAG, "Voice Keyboard initialized successfully / Голосовая клавиатура успешно инициализирована");
     ESP_LOGI(TAG, "Press and hold button to record audio / Нажмите и удерживайте кнопку для записи аудио");

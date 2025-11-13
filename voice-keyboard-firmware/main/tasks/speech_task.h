@@ -11,7 +11,7 @@
 #ifndef SPEECH_TASK_H
 #define SPEECH_TASK_H
 
-#include "speech_recognition.h"
+#include "../config/speech_recognition.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_err.h"

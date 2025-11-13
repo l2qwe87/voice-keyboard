@@ -3,13 +3,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-
-// Результат распознавания речи / Speech recognition result
-typedef struct {
-    char command[64];        // Распознанная команда / Recognized command
-    float confidence;        // Уверенность распознавания / Recognition confidence
-    bool is_final;          // Финальный результат / Final result
-} speech_result_t;
+#include "config/speech_recognition.h"
 
 // Инициализация системы голосовых команд / Initialize voice command system
 esp_err_t voice_commands_init(void);

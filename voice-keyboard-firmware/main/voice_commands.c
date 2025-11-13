@@ -1,7 +1,7 @@
 #include "voice_commands.h"
-#include "hid_task.h"
+#include "tasks/hid_task.h"
 #include "esp_log.h"
-#include "speech_recognition.h"
+#include "config/speech_recognition.h"
 #include <string.h>
 
 static const char *TAG = "VOICE_COMMANDS";
@@ -36,12 +36,12 @@ static const voice_command_t command_table[] = {
 static const size_t command_count = sizeof(command_table) / sizeof(voice_command_t);
 
 // Callback для результатов распознавания речи / Callback for speech recognition results
-static void speech_result_callback(const speech_result_t* result) {
+static void speech_result_callback(const speech_result_t* result, void* user_data) {
     if (!result || !result->is_final) {
         return;
     }
     
-    ESP_LOGI(TAG, "Processing command: '%s' (confidence: %.2f)", result->command, result->confidence);
+    ESP_LOGI(TAG, "Processing command: '%s' (confidence: %.2f)", result->text, result->confidence);
     
     // Обработать распознанную команду / Process recognized command
     voice_commands_process_result(result);
@@ -59,7 +59,7 @@ esp_err_t voice_commands_process_result(const speech_result_t* result) {
     
     // Поиск команды в таблице / Search command in table
     for (size_t i = 0; i < command_count; i++) {
-        if (strstr(result->command, command_table[i].keyword) != NULL) {
+        if (strstr(result->text, command_table[i].keyword) != NULL) {
             ESP_LOGI(TAG, "Command matched: '%s' -> modifier: 0x%02X, keycode: 0x%02X", 
                      command_table[i].keyword, command_table[i].modifier, command_table[i].keycode);
             
@@ -69,7 +69,7 @@ esp_err_t voice_commands_process_result(const speech_result_t* result) {
         }
     }
     
-    ESP_LOGW(TAG, "Unknown command: '%s'", result->command);
+    ESP_LOGW(TAG, "Unknown command: '%s'", result->text);
     return ESP_ERR_NOT_FOUND;
 }
 

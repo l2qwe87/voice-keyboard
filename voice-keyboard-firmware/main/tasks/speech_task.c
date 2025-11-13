@@ -9,7 +9,7 @@
  */
 
 #include "speech_task.h"
-#include "voice_commands.h"
+#include "../voice_commands.h"
 #include <stdlib.h>
 #include <string.h>
 #include "esp_log.h"
@@ -38,7 +38,7 @@ static void speech_result_callback(const speech_result_t* result, void* user_dat
     }
     
     ESP_LOGI(TAG, "Speech result: '%s' (confidence: %.2f, final: %s)", 
-             result->command, result->confidence, result->is_final ? "yes" : "no");
+             result->text, result->confidence, result->is_final ? "yes" : "no");
     
     // Отправить результат в обработчик голосовых команд / Send result to voice command handler
     if (result->is_final) {
@@ -80,15 +80,12 @@ void create_speech_task(void) {
     
     // Конфигурация распознавателя речи / Speech recognizer configuration
     speech_config_t config = {
-        .sample_rate = 16000,
-        .frame_length_ms = 30,
-        .frame_shift_ms = 10,
-        .vad_config = {
-            .energy_threshold = 0.01f,
-            .silence_timeout_ms = 1000,
-            .min_speech_duration_ms = 250,
-            .max_speech_duration_ms = 5000
-        }
+        .sensitivity = 0.5f,
+        .max_recording_time = 5000,
+        .language = "ru",
+        .enable_noise_reduction = true,
+        .enable_agc = true,
+        .confidence_threshold = 0.7f
     };
     
     // Создание распознавателя речи / Create speech recognizer
